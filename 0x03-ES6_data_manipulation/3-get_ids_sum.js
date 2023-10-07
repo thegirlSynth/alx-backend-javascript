@@ -1,9 +1,7 @@
 /* Returns the sum of all the student ids. */
 
 export default function getStudentIdsSum(studentsList) {
-  const studentsIds = studentsList.map((student) => student.id);
-
-  const sum = studentsIds.reduce((accumulator, currentValue) => accumulator + currentValue);
+  const sum = studentsList.reduce((accumulator, student) => accumulator + student.id, 0);
 
   return sum;
 }
