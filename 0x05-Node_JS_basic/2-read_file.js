@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 function countStudents(path) {
   try {
@@ -9,26 +9,25 @@ function countStudents(path) {
     let totalStudents = 0;
 
     students.slice(1).forEach((student) => {
-      const [firstName, lastName, age, field] = student.split(',');
+      const [firstName, field] = student.split(',');
 
       if (!fields[field]) {
         fields[field] = [];
       }
       fields[field].push(firstName);
-      totalStudents++;
+      totalStudents += 1;
     });
 
     console.log(`Number of students: ${totalStudents}`);
 
     for (const field in fields) {
-      if (fields.hasOwnProperty(field)) {
+      if (Object.prototype.hasOwnProperty.call(fields, field)) {
         console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`);
       }
     }
   } catch (err) {
-    throw new Error("Cannot load the database");
+    throw new Error('Cannot load the database');
   }
 }
-
 
 module.exports = countStudents;
