@@ -21,4 +21,3 @@ export default async function readDatabase(path) {
     throw new Error('Cannot load the database');
   }
 }
-
